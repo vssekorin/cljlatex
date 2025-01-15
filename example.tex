@@ -13,4 +13,32 @@ Test 1: $1+3=$ {clj> (+ 1 3) >clj}.
 
 Test 2: {clj> (list "abc" "def") >clj}
 
+Test 3: \begin{tabular}{|c|l|}
+    \hline
+    Id & text\\\hline
+    {clj>
+        (let [lines '("First" "Second" "Third")]
+          (map-indexed #(str % "&" %2 "\\\\ \\hline") lines))
+    >clj}
+    \end{tabular}
+
+Test 4: \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      $n$&$n!$&$n^2$&$e^n$\\
+      \hline\hline
+      {clj>
+        (do
+          (require '[clojure.math :as math])
+          (defn factorial [x]
+            (apply *' (range 2 (inc x))))
+          (for [n (range 11)
+                :let [f (factorial n)
+                      d (int (math/pow n 2))
+                      e (format "%.2f" (math/exp n))]]
+            (str n "&" f "&" d "&" e "\\\\ \\hline")))
+      >clj}
+    \end{tabular}
+  \end{center}
+
 \end{document} 
