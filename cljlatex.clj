@@ -8,7 +8,7 @@
   (System/exit 1))
 
 (def in-file-name (first *command-line-args*))
-(def out-file-name (str "result-" in-file-name))
+(def out-file-name (str "clj-" in-file-name))
 
 (def start-symb "{clj>")
 (def start-before-symb "{clj:before>")
