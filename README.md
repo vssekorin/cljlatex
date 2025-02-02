@@ -1,5 +1,8 @@
 # $`clj\LaTeX`$
 
+`{clj> >clj}` --- clojure-block. Each element of returned list is a new line.
+`{clj:before> >clj}` --- clojure before-each block.
+
 ### Example
 See [example](./example.tex).
 
